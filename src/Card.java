@@ -31,6 +31,14 @@ public final class Card {
         ACE
     }
 
+    @Override
+    public boolean equals(Object object) {
+        if (object instanceof Card) {
+            return ((Card) object).getSuit() == this.suit && ((Card) object).getRank() == this.rank;
+        }
+        return false;
+    }
+
     public Card(Suit suit, Rank rank) {
         this.suit = suit;
         this.rank = rank;
