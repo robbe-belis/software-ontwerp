@@ -39,6 +39,11 @@ public final class Card {
         return false;
     }
 
+    @Override
+    public String toString() {
+        return "Card: " + this.suit + " " + this.rank;
+    }
+
     public Card(Suit suit, Rank rank) {
         this.suit = suit;
         this.rank = rank;

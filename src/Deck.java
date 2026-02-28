@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class Deck {
     private int PLAYER_COUNT = 4;
@@ -35,15 +32,17 @@ public class Deck {
 
     // playerNames needs to be in order from left to right
     public Deck(ArrayList<String> playerNames) {
+        this.players = (ArrayList<String>) playerNames.clone();
         this.playerCards = new HashMap<String, ArrayList<Card>>();
         for (String player : playerNames) {
             this.playerCards.put(player, new ArrayList<Card>());
         }
         this.currentCards = getDeckCards();
+        Collections.shuffle(this.currentCards);
     }
 
     // returns temporary trump suit (last card dealt)
-    public Card.Suit DealCards() {
+    public Card.Suit dealCards() {
         for (int cardsAmount : this.dealSteps) {
             for (String player : this.players) {
                 dealPlayerCards(player, cardsAmount);
