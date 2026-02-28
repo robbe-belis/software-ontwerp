@@ -1,8 +1,8 @@
 
 
-public class Card {
-    private Suit suit;
-    private Rank rank;
+public final class Card {
+    private final Suit suit;
+    private final Rank rank;
 
     // Example: Card.Suit.HEARTS
     public enum Suit {
